@@ -1,4 +1,5 @@
 using System;
+using Core;
 using ScriptableObjects;
 using TMPro;
 using UnityEngine;
@@ -31,7 +32,7 @@ namespace UI
             UpdateType(itemSo.itemType);
             _item = itemSo;
         }
-    
+        
         private void UpdateButton(bool isPurchased, bool isEquipped = false)
         {
             buyButton.SetActive(!isPurchased);
@@ -109,7 +110,7 @@ namespace UI
             var inventoryController = GameManager.Instance.GetPlayerInventoryController();
             var result = inventoryController.EquipItem(_item);
             UpdateButton(true, true);
-            ShowResultText(result);
+            ShowResultText(result.Item1);
         }
 
         private void UpdateType(ItemType itemType) => type = itemType;
@@ -117,5 +118,6 @@ namespace UI
         private void UpdatePrice(int price) => priceField.text = $"{price}";
         private void UpdateDescription(string description) => descriptionField.text = description;
         private void UpdateTitle(string title) => titleField.text = title;
+        public ItemSO GetItem() => _item;
     }
 }

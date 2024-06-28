@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
+using Core;
 using ScriptableObjects;
 using UI;
 using UnityEngine;
@@ -25,16 +26,19 @@ namespace Player
             _uiManager.UpdateGoldAmountText($"{_gold}G");
         }
 
-        public ShopActionResult EquipItem(ItemSO item)
+        public (ShopActionResult, ItemSO) EquipItem(ItemSO item)
         {
-            if (equippedItems.Contains(item)) return ShopActionResult.ALREADYEQUIPPED;
+            if (equippedItems.Contains(item)) return (ShopActionResult.ALREADYEQUIPPED, item);
         
             _outfitController.ApplyEquipItemVisuals(item);
             var equippedCounterpart = equippedItems.First(i => i.itemType == item.itemType);
             equippedItems.Remove(equippedCounterpart);
             equippedItems.Add(item);
 
-            return ShopActionResult.EQUIPPED;
+            var storeItem = _uiManager.FindStoreItemByItem(equippedCounterpart);
+            storeItem.UpdateFields(equippedCounterpart, true, false);
+            
+            return (ShopActionResult.EQUIPPED, equippedCounterpart);
         }
 
         public bool CheckIfItemIsPurchased(ItemSO item) => inventory.Contains(item);

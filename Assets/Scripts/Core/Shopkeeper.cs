@@ -1,33 +1,37 @@
 using UnityEngine;
 
-public class Shopkeeper : MonoBehaviour
+namespace Core
 {
-    private Transform playerTransform;
-    public GameObject shopTooltip;
-
-    private void Awake()
+    public class Shopkeeper : MonoBehaviour
     {
-        playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
-    }
+        private Transform _playerTransform;
+        public GameObject shopTooltip;
+        public float playerDistanceForTooltip = 2f;
 
-    private void Update()
-    {
-        if (Vector2.Distance(playerTransform.position, transform.position) >= 5f)
+        private void Awake()
         {
-            shopTooltip.SetActive(false);
-            return;
+            _playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
         }
 
-        var isShopping = GameManager.Instance.GetState() == GameState.SHOPPING;
-        
-        if (!shopTooltip.activeSelf) 
-            shopTooltip.SetActive(!isShopping);
-        else
-            shopTooltip.SetActive(!isShopping);
-
-        if (Input.GetKeyDown(KeyCode.E))
+        private void Update()
         {
-            GameManager.Instance.ChangeGameState(GameState.SHOPPING);
+            if (Vector2.Distance(_playerTransform.position, transform.position) >= playerDistanceForTooltip)
+            {
+                shopTooltip.SetActive(false);
+                return;
+            }
+
+            var isShopping = GameManager.Instance.GetState() == GameState.SHOPPING;
+        
+            if (!shopTooltip.activeSelf) 
+                shopTooltip.SetActive(!isShopping);
+            else
+                shopTooltip.SetActive(!isShopping);
+
+            if (Input.GetKeyDown(KeyCode.E) && shopTooltip.activeSelf)
+            {
+                GameManager.Instance.ChangeGameState(GameState.SHOPPING);
+            }
         }
     }
 }

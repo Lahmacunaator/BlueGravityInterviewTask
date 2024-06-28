@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
+using Core;
 using Player;
 using ScriptableObjects;
 using UnityEngine;
@@ -51,6 +52,8 @@ namespace UI
             _isStoreGenerated = true;
         }
 
+        public StoreItemUI FindStoreItemByItem(ItemSO item) => _storeItemsInScene.First(i => i.GetItem() == item);
+        
         public void FilterWeapons()
         {
             var weapons = _storeItemsInScene.Where(item => item.type == ItemType.WEAPON);
