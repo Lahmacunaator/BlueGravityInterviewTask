@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class CameraController : MonoBehaviour
 {
-    public Camera mainCamera;
+    private Camera mainCamera;
     public Transform player;
     public float zoomInSize = 2.0f;
     public float zoomOutSize = 5.0f;
@@ -13,11 +13,7 @@ public class CameraController : MonoBehaviour
 
     private void Start()
     {
-        if (mainCamera == null)
-        {
-            mainCamera = Camera.main; // Default to the main camera if not set
-        }
-        ToggleZoom();
+        mainCamera = Camera.main;
     }
     
     public void ToggleZoom()
