@@ -1526,6 +1526,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e35b144cbce3d2c48a95a9dada1b60a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  inventory:
+  - {fileID: 11400000, guid: a2032204803b7ad46b3f6e11bc6d60eb, type: 2}
+  - {fileID: 11400000, guid: ef2e8fd834906974ca4b5fe2d97dc1a5, type: 2}
+  - {fileID: 11400000, guid: d5f549423962fc142bc5ee6b14e4d7c1, type: 2}
+  - {fileID: 11400000, guid: 691834d882aed6644b0c4eb1754de152, type: 2}
+  - {fileID: 11400000, guid: 8862a62e90781634b841ef780b56a7ef, type: 2}
+  - {fileID: 11400000, guid: 1cb55f6223b0b1648b5093bedd017e62, type: 2}
+  - {fileID: 11400000, guid: c90daed5b441f2748b5d2667a738c4f3, type: 2}
+  - {fileID: 11400000, guid: 8609c956e62055d40bfa857118af2995, type: 2}
+  - {fileID: 11400000, guid: 3fd62bb7ceb8f3d4b9cdfd32e0a13c58, type: 2}
+  - {fileID: 11400000, guid: 5f22b5ab9b630214dbe1d08868b7dd8a, type: 2}
+  equippedItems:
+  - {fileID: 11400000, guid: a2032204803b7ad46b3f6e11bc6d60eb, type: 2}
+  - {fileID: 11400000, guid: ef2e8fd834906974ca4b5fe2d97dc1a5, type: 2}
+  - {fileID: 11400000, guid: d5f549423962fc142bc5ee6b14e4d7c1, type: 2}
+  - {fileID: 11400000, guid: 691834d882aed6644b0c4eb1754de152, type: 2}
+  - {fileID: 11400000, guid: 8862a62e90781634b841ef780b56a7ef, type: 2}
+  - {fileID: 11400000, guid: 1cb55f6223b0b1648b5093bedd017e62, type: 2}
+  - {fileID: 11400000, guid: c90daed5b441f2748b5d2667a738c4f3, type: 2}
+  - {fileID: 11400000, guid: 8609c956e62055d40bfa857118af2995, type: 2}
+  - {fileID: 11400000, guid: 3fd62bb7ceb8f3d4b9cdfd32e0a13c58, type: 2}
+  - {fileID: 11400000, guid: 5f22b5ab9b630214dbe1d08868b7dd8a, type: 2}
 --- !u!114 &1198089475399689363
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1538,6 +1560,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3b6d41936d6f02408bd0ce19fde7224, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  moveSpeed: 5
 --- !u!114 &1213260715512943588
 MonoBehaviour:
   m_ObjectHideFlags: 0

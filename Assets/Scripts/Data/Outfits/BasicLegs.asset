@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bfc2aef9e09dc7343a0643d4218a1384, type: 3}
-  m_Name: BasicHood
+  m_Name: BasicLegs
   m_EditorClassIdentifier: 
-  itemType: 1
-  icon: {fileID: 21300000, guid: 0f6c9761909e2b94c84b508b1ba411b7, type: 3}
-  itemName: Basic Hood
-  description: The most basic head armor for rogues.
-  price: 0
-  mainEquipmentSprite: {fileID: 21300000, guid: f7e7bed775fff8347b9e53c67e20875f, type: 3}
-  equipmentSpriteR: {fileID: 0}
+  itemType: 8
+  icon: {fileID: 21300000, guid: 3c5c084de55c6de4bb0f520ec6be2ef9, type: 3}
+  itemName: Basic Pants
+  description: Basic leg protection.
+  price: 50
+  mainEquipmentSprite: {fileID: 21300000, guid: 40e550cd3b539f14eb98d42b6769b592, type: 3}
+  equipmentSpriteR: {fileID: 21300000, guid: 7b78357522a34d64bb8775b962b0deb0, type: 3}
   health: 10
   defense: 5

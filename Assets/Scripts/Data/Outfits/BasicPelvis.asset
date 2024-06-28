@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bfc2aef9e09dc7343a0643d4218a1384, type: 3}
-  m_Name: BasicHood
+  m_Name: BasicPelvis
   m_EditorClassIdentifier: 
-  itemType: 1
-  icon: {fileID: 21300000, guid: 0f6c9761909e2b94c84b508b1ba411b7, type: 3}
-  itemName: Basic Hood
-  description: The most basic head armor for rogues.
-  price: 0
-  mainEquipmentSprite: {fileID: 21300000, guid: f7e7bed775fff8347b9e53c67e20875f, type: 3}
+  itemType: 4
+  icon: {fileID: 21300000, guid: a8a0db3b685cfbc46b2ac8370b4b58a4, type: 3}
+  itemName: Basic Guard
+  description: Basic pelvis protection
+  price: 50
+  mainEquipmentSprite: {fileID: 21300000, guid: 27fe921d9d4bdb24eb91cc1e96a04f02, type: 3}
   equipmentSpriteR: {fileID: 0}
-  health: 10
-  defense: 5
+  health: 15
+  defense: 1

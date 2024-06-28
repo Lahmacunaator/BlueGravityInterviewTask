@@ -1,15 +1,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
-using UnityEngine.UI;
 
-public class BuyUIController : MonoBehaviour
+public class ShopUIController : MonoBehaviour
 {
     [SerializeField] private GameObject storeItemPrefab;
     [SerializeField] private Transform storeItemParent;
-    [SerializeField] private Toggle weaponsFilter;
-    [SerializeField] private Toggle outfitsFilter;
-    [SerializeField] private Toggle setsFilter;
     
     private List<ItemSO> playerItems;
     private List<StoreItemUI> storeItemsInScene = new();
@@ -75,4 +71,15 @@ public class BuyUIController : MonoBehaviour
         inventoryController = GameManager.Instance.GetPlayerInventoryController();
         playerItems = inventoryController.GetPlayerInventory();
     }
+}
+
+public enum ShopActionResult
+{
+    NOTENOUGHGOLD,
+    PURCHASED,
+    EQUIPANOTHERITEMBEFORESELLING,
+    EQUIPPED,
+    SOLD,
+    ERROR,
+    ALREADYEQUIPPED
 }

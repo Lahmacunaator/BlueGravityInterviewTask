@@ -1,3 +1,4 @@
+using System;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -11,6 +12,8 @@ public class StoreItemUI : MonoBehaviour
     [SerializeField] private Image iconField;
     [SerializeField] private GameObject buyButton;
     [SerializeField] private GameObject equipButton;
+    [SerializeField] private GameObject sellButton;
+    [SerializeField] private GameObject resultTextPrefab;
 
     public ItemType type;
     private ItemSO item;
@@ -30,11 +33,65 @@ public class StoreItemUI : MonoBehaviour
     {
         buyButton.SetActive(!isPurchased);
         equipButton.SetActive(isPurchased);
+        sellButton.SetActive(isPurchased);
     }
 
     public void OnBuyButton()
     {
+        var inventory = GameManager.Instance.GetPlayerInventoryController();
+        
+        inventory.HandleItemPurchase(item);
+        
         UpdateButton(true);
+    }
+    
+    public void OnSellButton()
+    {
+        var inventory = GameManager.Instance.GetPlayerInventoryController();
+        
+        var result = inventory.HandleItemSale(item);
+        
+        ShowResultText(result);
+
+        if (result is ShopActionResult.ERROR or ShopActionResult.EQUIPANOTHERITEMBEFORESELLING) return;
+        
+        UpdateButton(false);
+    }
+
+    private void ShowResultText(ShopActionResult result)
+    {
+        var resultText = Instantiate(resultTextPrefab, transform);
+        var textArea = resultText.GetComponent<TMP_Text>();
+        switch (result)
+        {
+            case ShopActionResult.NOTENOUGHGOLD:
+                textArea.text = $"You don't have enough gold to buy {item.itemName}";
+                break;
+            case ShopActionResult.PURCHASED:
+                textArea.color = Color.green;
+                textArea.text = "Purchased successfully!";
+                break;
+            case ShopActionResult.EQUIPANOTHERITEMBEFORESELLING:
+                textArea.text = $"Equip Another Item before selling the {item.itemName}.";
+                break;
+            case ShopActionResult.EQUIPPED:
+                textArea.color = Color.green;
+                textArea.text = $"Equipped {item.itemName} successfully.";
+                break;
+            case ShopActionResult.SOLD:
+                textArea.color = Color.green;
+                textArea.text = $"Sold {item.itemName}";
+                break;
+            case ShopActionResult.ERROR:
+                textArea.text = "An error has occured";
+                break;
+            case ShopActionResult.ALREADYEQUIPPED:
+                textArea.text = $"{item.itemName} is already equipped";
+                break;
+            default:
+                throw new ArgumentOutOfRangeException(nameof(result), result, null);
+        }
+        Destroy(textArea, 2);
     }
     
     public void OnEquipButton()

@@ -992,19 +992,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6aaf34b1409f62349ac17c932a37f537, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  storeItems:
-  - {fileID: 11400000, guid: 34d278c2e512a6b448674f96d3e84ba6, type: 2}
-  - {fileID: 11400000, guid: aae44878c175a3e46be7cf135430fc2a, type: 2}
-  - {fileID: 11400000, guid: ca68347f8659d5f45b3420fdab24d2de, type: 2}
-  - {fileID: 11400000, guid: 5f22b5ab9b630214dbe1d08868b7dd8a, type: 2}
-  - {fileID: 11400000, guid: 496c9f3b7c9553e44aed70c923ca34e6, type: 2}
-  - {fileID: 11400000, guid: b681313be26824f41abca072f840a212, type: 2}
-  - {fileID: 11400000, guid: 691834d882aed6644b0c4eb1754de152, type: 2}
   storeItemPrefab: {fileID: 8008275358749180727, guid: f802dc8cedecad14b814fc5a367e5118, type: 3}
   storeItemParent: {fileID: 5469700835974454063}
-  weaponsFilter: {fileID: 1028111200583714153}
-  outfitsFilter: {fileID: 971619563971601899}
-  setsFilter: {fileID: 7874140161004295413}
 --- !u!1 &4760607950885936289
 GameObject:
   m_ObjectHideFlags: 0

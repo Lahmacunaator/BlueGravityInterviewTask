@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bfc2aef9e09dc7343a0643d4218a1384, type: 3}
-  m_Name: BasicHood
+  m_Name: BasicShoulders
   m_EditorClassIdentifier: 
-  itemType: 1
-  icon: {fileID: 21300000, guid: 0f6c9761909e2b94c84b508b1ba411b7, type: 3}
-  itemName: Basic Hood
-  description: The most basic head armor for rogues.
-  price: 0
-  mainEquipmentSprite: {fileID: 21300000, guid: f7e7bed775fff8347b9e53c67e20875f, type: 3}
-  equipmentSpriteR: {fileID: 0}
-  health: 10
+  itemType: 5
+  icon: {fileID: 21300000, guid: 9e92bbeb1f3999a4f9d74beea5be2147, type: 3}
+  itemName: Basic Pads
+  description: Basic shoulder protection.
+  price: 50
+  mainEquipmentSprite: {fileID: 21300000, guid: 57e9977661e6a7246b75c2de487e5bb3, type: 3}
+  equipmentSpriteR: {fileID: 21300000, guid: a471110b5fe3bcc4caff7ad9ff13d244, type: 3}
+  health: 5
   defense: 5

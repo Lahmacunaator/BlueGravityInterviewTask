@@ -1,13 +1,14 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class UIManager : MonoBehaviour
 {
+    public PlayerMovement playerMover;
+    public GameObject shopUI;
+    
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
-        
+        playerMover = GameManager.Instance.GetPlayerMover();
     }
 
     // Update is called once per frame
@@ -15,4 +16,6 @@ public class UIManager : MonoBehaviour
     {
         
     }
+
+    public void ToggleShopUI() => shopUI.SetActive(!shopUI.activeSelf);
 }

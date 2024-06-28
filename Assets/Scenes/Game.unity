@@ -588,6 +588,24 @@ MonoBehaviour:
   - {fileID: 11400000, guid: b681313be26824f41abca072f840a212, type: 2}
   - {fileID: 11400000, guid: 496c9f3b7c9553e44aed70c923ca34e6, type: 2}
   - {fileID: 11400000, guid: 691834d882aed6644b0c4eb1754de152, type: 2}
+  - {fileID: 11400000, guid: 3fd62bb7ceb8f3d4b9cdfd32e0a13c58, type: 2}
+  - {fileID: 11400000, guid: 8609c956e62055d40bfa857118af2995, type: 2}
+  - {fileID: 11400000, guid: c90daed5b441f2748b5d2667a738c4f3, type: 2}
+  - {fileID: 11400000, guid: 1cb55f6223b0b1648b5093bedd017e62, type: 2}
+  - {fileID: 11400000, guid: 8862a62e90781634b841ef780b56a7ef, type: 2}
+  - {fileID: 11400000, guid: d5f549423962fc142bc5ee6b14e4d7c1, type: 2}
+  - {fileID: 11400000, guid: ef2e8fd834906974ca4b5fe2d97dc1a5, type: 2}
+  - {fileID: 11400000, guid: a2032204803b7ad46b3f6e11bc6d60eb, type: 2}
+  - {fileID: 11400000, guid: 59adae6570c23b94c8d42ffcbf26898f, type: 2}
+  - {fileID: 11400000, guid: b2a388d4080c0564396a25122d8d3035, type: 2}
+  - {fileID: 11400000, guid: 1faf9ec9ec72a2945a9feefefaf4b835, type: 2}
+  - {fileID: 11400000, guid: 0b8a48a2de32b374d984631a87695736, type: 2}
+  - {fileID: 11400000, guid: f91bd773c41bd5042a2224daad20e856, type: 2}
+  - {fileID: 11400000, guid: c0390800047c1744bb90dd328b0ca0e5, type: 2}
+  - {fileID: 11400000, guid: 994add00326065447a7860c65119bb35, type: 2}
+  - {fileID: 11400000, guid: c4aaf17116441024c91c7ae21cd9cf1e, type: 2}
+  - {fileID: 11400000, guid: 5fd890ce960f86641a92580dd78b82a5, type: 2}
+  - {fileID: 11400000, guid: 5fd890ce960f86641a92580dd78b82a5, type: 2}
 --- !u!1 &2135698072
 GameObject:
   m_ObjectHideFlags: 0
@@ -603,7 +621,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2135698073
 RectTransform:
   m_ObjectHideFlags: 0
@@ -792,11 +810,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4172827896257478361, guid: 40972cf429775354c828c530bd423a9f, type: 3}
       propertyPath: m_Name
-      value: BuyUI
-      objectReference: {fileID: 0}
-    - target: {fileID: 4172827896257478361, guid: 40972cf429775354c828c530bd423a9f, type: 3}
-      propertyPath: m_IsActive
-      value: 0
+      value: ShopPanel
       objectReference: {fileID: 0}
     - target: {fileID: 5469700835974454063, guid: 40972cf429775354c828c530bd423a9f, type: 3}
       propertyPath: m_SizeDelta.y
