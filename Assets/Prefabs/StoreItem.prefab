@@ -389,7 +389,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 5762216395728249798}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2982353280763088210}
+        m_TargetAssemblyTypeName: StoreItemUI, Assembly-CSharp
+        m_MethodName: OnBuyButton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &7377740781477557226
 GameObject:
   m_ObjectHideFlags: 0
@@ -644,7 +656,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 5647148792550715223}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2982353280763088210}
+        m_TargetAssemblyTypeName: StoreItemUI, Assembly-CSharp
+        m_MethodName: OnEquipButton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &8008275358749180727
 GameObject:
   m_ObjectHideFlags: 0
@@ -745,6 +769,7 @@ MonoBehaviour:
   iconField: {fileID: 4413499063447320837}
   buyButton: {fileID: 3620903376614509046}
   equipButton: {fileID: 7600259504860907994}
+  type: 0
 --- !u!1 &8606775213511047951
 GameObject:
   m_ObjectHideFlags: 0

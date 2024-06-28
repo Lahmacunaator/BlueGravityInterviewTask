@@ -192,7 +192,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0.4811321, b: 0.10715953, a: 1}
+  m_Color: {r: 0.48235294, g: 0, b: 0.032412138, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -270,11 +270,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Padding:
-    m_Left: 0
+    m_Left: 40
     m_Right: 0
     m_Top: 0
     m_Bottom: 0
-  m_ChildAlignment: 4
+  m_ChildAlignment: 3
   m_Spacing: 0
   m_ChildForceExpandWidth: 1
   m_ChildForceExpandHeight: 1
@@ -569,7 +569,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: SHOP
+  m_text: BUY & EQUIP
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 4a7e63330078b8d45bd8c91dc4d20996, type: 2}
   m_sharedMaterial: {fileID: -6440207687170930603, guid: 4a7e63330078b8d45bd8c91dc4d20996, type: 2}
@@ -596,12 +596,12 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 72
+  m_fontSize: 50
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
   m_fontSizeMin: 18
-  m_fontSizeMax: 72
+  m_fontSizeMax: 50
   m_fontStyle: 0
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
@@ -912,6 +912,7 @@ GameObject:
   - component: {fileID: 4077211751764304190}
   - component: {fileID: 433643951436892239}
   - component: {fileID: 4986485845878586300}
+  - component: {fileID: 7338146359486486286}
   m_Layer: 5
   m_Name: BuyUI
   m_TagString: Untagged
@@ -926,7 +927,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4172827896257478361}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -979,6 +980,31 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &7338146359486486286
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4172827896257478361}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6aaf34b1409f62349ac17c932a37f537, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  storeItems:
+  - {fileID: 11400000, guid: 34d278c2e512a6b448674f96d3e84ba6, type: 2}
+  - {fileID: 11400000, guid: aae44878c175a3e46be7cf135430fc2a, type: 2}
+  - {fileID: 11400000, guid: ca68347f8659d5f45b3420fdab24d2de, type: 2}
+  - {fileID: 11400000, guid: 5f22b5ab9b630214dbe1d08868b7dd8a, type: 2}
+  - {fileID: 11400000, guid: 496c9f3b7c9553e44aed70c923ca34e6, type: 2}
+  - {fileID: 11400000, guid: b681313be26824f41abca072f840a212, type: 2}
+  - {fileID: 11400000, guid: 691834d882aed6644b0c4eb1754de152, type: 2}
+  storeItemPrefab: {fileID: 8008275358749180727, guid: f802dc8cedecad14b814fc5a367e5118, type: 3}
+  storeItemParent: {fileID: 5469700835974454063}
+  weaponsFilter: {fileID: 1028111200583714153}
+  outfitsFilter: {fileID: 971619563971601899}
+  setsFilter: {fileID: 7874140161004295413}
 --- !u!1 &4760607950885936289
 GameObject:
   m_ObjectHideFlags: 0
@@ -1037,7 +1063,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0.4811321, b: 0.10715953, a: 1}
+  m_Color: {r: 0.48235294, g: 0, b: 0.032412138, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1368,7 +1394,19 @@ MonoBehaviour:
   m_Group: {fileID: 0}
   onValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 7338146359486486286}
+        m_TargetAssemblyTypeName: BuyUIController, Assembly-CSharp
+        m_MethodName: FilterSets
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_IsOn: 0
 --- !u!1 &6668404924132850618
 GameObject:
@@ -1453,7 +1491,19 @@ MonoBehaviour:
   m_Group: {fileID: 0}
   onValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 7338146359486486286}
+        m_TargetAssemblyTypeName: BuyUIController, Assembly-CSharp
+        m_MethodName: FilterWeapons
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_IsOn: 0
 --- !u!1 &7123733548851747062
 GameObject:
@@ -1919,7 +1969,19 @@ MonoBehaviour:
   m_Group: {fileID: 0}
   onValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 7338146359486486286}
+        m_TargetAssemblyTypeName: BuyUIController, Assembly-CSharp
+        m_MethodName: FilterOutfits
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_IsOn: 0
 --- !u!1 &8297580401020352070
 GameObject:
@@ -2144,7 +2206,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0.4811321, b: 0.10715953, a: 1}
+  m_Color: {r: 0.48235294, g: 0, b: 0.032412138, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1

@@ -1,9 +1,11 @@
 using UnityEngine;
+using UnityEngine.Serialization;
 
 [CreateAssetMenu(fileName = "NewOutfit", menuName = "Store/Outfit")]
-public class OutfitSO : StoreItemSO
+public class OutfitSO : ItemSO
 {
+    public Sprite mainEquipmentSprite;
+    public Sprite equipmentSpriteR;
     public int health;
-    public float range;
-    public float attackSpeed;
+    public int defense;
 }

@@ -1,10 +1,10 @@
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "NewWeapon", menuName = "Store/Weapon")]
-public class WeaponSO : StoreItemSO
+public class WeaponSO : ItemSO
 {
-    public Sprite offHandIcon;
+    public Sprite mainHandSprite;
+    public Sprite offHandSprite;
     public int damage;
-    public float range;
     public float attackSpeed;
 }

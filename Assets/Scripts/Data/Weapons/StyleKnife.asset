@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bfb2ee476510ab14db8f941728cd742d, type: 3}
-  m_Name: Stiletto
+  m_Name: StyleKnife
   m_EditorClassIdentifier: 
-  StoreItemType: 0
-  icon: {fileID: 21300000, guid: a67dcd548e2cfcc40b0c865c7461e835, type: 3}
-  itemName: Stiletto
+  itemType: 0
+  icon: {fileID: 21300000, guid: fcb6d6cf53ec3e84eb0835f69272c6a5, type: 3}
+  itemName: Style Knife
   description: 
   price: 100
-  offHandIcon: {fileID: 21300000, guid: f8d916881a19b7a4a99ec74753414a40, type: 3}
-  damage: 10
-  range: 0
+  mainHandSprite: {fileID: 21300000, guid: 97ad91e8b9bc5f94f941f06a70776c26, type: 3}
+  offHandSprite: {fileID: 21300000, guid: 97ad91e8b9bc5f94f941f06a70776c26, type: 3}
+  damage: 70
   attackSpeed: 1
