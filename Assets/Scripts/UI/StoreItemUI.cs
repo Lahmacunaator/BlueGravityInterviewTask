@@ -24,9 +24,10 @@ namespace UI
 
         public void UpdateFields(ItemSO itemSo, bool isPurchased = false, bool isEquipped = false)
         {
+            var priceToDisplay = isPurchased ? itemSo.GetSellPrice : itemSo.price;
             UpdateTitle(itemSo.itemName);
             UpdateDescription(itemSo.description);
-            UpdatePrice(itemSo.price);
+            UpdatePrice(priceToDisplay);
             UpdateIcon(itemSo.icon);
             UpdateButton(isPurchased, isEquipped);
             UpdateType(itemSo.itemType);
