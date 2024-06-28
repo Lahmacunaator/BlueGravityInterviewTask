@@ -11,7 +11,7 @@ namespace ScriptableObjects
         public string description;
         public int price;
 
-        public int GetSellPrice => Mathf.FloorToInt(price / 5 * 3);
+        public int GetSellPrice => Mathf.FloorToInt(price / 5f * 3f);
     }
 
     public enum ItemType

@@ -5,28 +5,29 @@ namespace Player
     public class PlayerMovement : MonoBehaviour
     {
         public float moveSpeed = 5f;
-        private Rigidbody2D rigidBody;
-        private Animator animator;
-
-        private Vector2 movement;
+        private Rigidbody2D _rigidBody;
+        private Animator _animator;
+        private Vector2 _movement;
+        
+        private static readonly int Speed = Animator.StringToHash("speed");
 
         void Start()
         {
-            animator = GetComponent<Animator>();
-            rigidBody = GetComponent<Rigidbody2D>();
+            _animator = GetComponent<Animator>();
+            _rigidBody = GetComponent<Rigidbody2D>();
         }
 
         private void Update()
         {
-            movement.x = Input.GetAxisRaw("Horizontal");
-            movement.y = Input.GetAxisRaw("Vertical");
+            _movement.x = Input.GetAxisRaw("Horizontal");
+            _movement.y = Input.GetAxisRaw("Vertical");
         
-            animator.SetFloat("speed", movement.sqrMagnitude);
+            _animator.SetFloat(Speed, _movement.sqrMagnitude);
         }
 
         private void FixedUpdate()
         {
-            rigidBody.MovePosition(rigidBody.position + movement * (moveSpeed * Time.fixedDeltaTime));
+            _rigidBody.MovePosition(_rigidBody.position + _movement * (moveSpeed * Time.fixedDeltaTime));
         }
     }
 }

@@ -15,9 +15,7 @@ MonoBehaviour:
   itemType: 0
   icon: {fileID: 21300000, guid: f78dfc67008e3bc4e961b453f0e3c4c4, type: 3}
   itemName: Piercer
-  description: 
-  price: 100
+  description: The best knife ever. Cuts through strongest armor.
+  price: 600
   mainHandSprite: {fileID: 21300000, guid: 37e05d8dcd5e386498e75d924efbc7c1, type: 3}
   offHandSprite: {fileID: 21300000, guid: 37e05d8dcd5e386498e75d924efbc7c1, type: 3}
-  damage: 100
-  attackSpeed: 1

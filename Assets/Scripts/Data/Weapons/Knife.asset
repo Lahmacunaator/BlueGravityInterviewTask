@@ -16,8 +16,6 @@ MonoBehaviour:
   icon: {fileID: 21300000, guid: d7deddd3558e2504ca68d1b1ff9a2798, type: 3}
   itemName: Knife
   description: Kitchen knife used by the best chefs.
-  price: 100
+  price: 150
   mainHandSprite: {fileID: 21300000, guid: 0a4a3c212d77eb243aeaac660261fb0f, type: 3}
   offHandSprite: {fileID: 21300000, guid: 0a4a3c212d77eb243aeaac660261fb0f, type: 3}
-  damage: 25
-  attackSpeed: 1

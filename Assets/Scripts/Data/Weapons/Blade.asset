@@ -15,9 +15,7 @@ MonoBehaviour:
   itemType: 0
   icon: {fileID: 21300000, guid: 4481b4bf0aef5a547a1a1dbf83310f5f, type: 3}
   itemName: Blade
-  description: 
-  price: 100
+  description: Sharp blade.
+  price: 225
   mainHandSprite: {fileID: 21300000, guid: ac0dddbcfbe1ac846ab5ba58507ed979, type: 3}
   offHandSprite: {fileID: 21300000, guid: ac0dddbcfbe1ac846ab5ba58507ed979, type: 3}
-  damage: 35
-  attackSpeed: 1

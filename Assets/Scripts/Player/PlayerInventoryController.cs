@@ -8,28 +8,28 @@ namespace Player
 {
     public class PlayerInventoryController : MonoBehaviour
     {
-        private int gold = 2000;
         public List<ItemSO> inventory;
         public List<ItemSO> equippedItems;
-        private PlayerOutfitController outfitController;
-        private UIManager uiManager;
-    
+        private PlayerOutfitController _outfitController;
+        private UIManager _uiManager;
+        private int _gold = 2000;
+        
         private void Awake()
         {
-            outfitController = GetComponent<PlayerOutfitController>();
+            _outfitController = GetComponent<PlayerOutfitController>();
         }
 
         private void Start()
         {
-            uiManager = GameManager.Instance.uiManager;
-            uiManager.UpdateGoldAmountText($"{gold}G");
+            _uiManager = GameManager.Instance.uiManager;
+            _uiManager.UpdateGoldAmountText($"{_gold}G");
         }
 
         public ShopActionResult EquipItem(ItemSO item)
         {
             if (equippedItems.Contains(item)) return ShopActionResult.ALREADYEQUIPPED;
         
-            outfitController.ApplyEquipItemVisuals(item);
+            _outfitController.ApplyEquipItemVisuals(item);
             var equippedCounterpart = equippedItems.First(i => i.itemType == item.itemType);
             equippedItems.Remove(equippedCounterpart);
             equippedItems.Add(item);
@@ -47,14 +47,14 @@ namespace Player
 
         private void AddGold(int value)
         {
-            gold += value;
-            uiManager.UpdateGoldAmountText($"{gold}G");
+            _gold += value;
+            _uiManager.UpdateGoldAmountText($"{_gold}G");
         }
 
         private void RemoveGold(int value)
         {
-            gold -= value;
-            uiManager.UpdateGoldAmountText($"{gold}G");
+            _gold -= value;
+            _uiManager.UpdateGoldAmountText($"{_gold}G");
         }
 
         private bool TryRemoveItem(ItemSO item)
@@ -69,9 +69,6 @@ namespace Player
         {
             if (equippedItems.Contains(item))
                 return ShopActionResult.EQUIPANOTHERITEMBEFORESELLING;
-
-            if (gold < item.price)
-                return ShopActionResult.NOTENOUGHGOLD;
         
             var canProceed = TryRemoveItem(item);
 
@@ -85,11 +82,12 @@ namespace Player
     
         public ShopActionResult HandleItemPurchase(ItemSO item)
         {
+            if (_gold < item.price)
+                return ShopActionResult.NOTENOUGHGOLD;
+            
             AddItem(item);
             RemoveGold(item.price);
             return ShopActionResult.PURCHASED;
         }
-
-        public List<ItemSO> GetPlayerInventory() => inventory;
     }
 }

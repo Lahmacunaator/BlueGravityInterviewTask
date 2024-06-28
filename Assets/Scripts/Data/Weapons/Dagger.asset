@@ -15,9 +15,7 @@ MonoBehaviour:
   itemType: 0
   icon: {fileID: 21300000, guid: f0bcb7244b4d7144eb2a7fcfca364fba, type: 3}
   itemName: Dagger
-  description: 
-  price: 100
+  description: Daggers commonly used by assassins.
+  price: 350
   mainHandSprite: {fileID: 21300000, guid: 8923765c279ee0241afd55ff5dc53f92, type: 3}
   offHandSprite: {fileID: 21300000, guid: 8923765c279ee0241afd55ff5dc53f92, type: 3}
-  damage: 45
-  attackSpeed: 1

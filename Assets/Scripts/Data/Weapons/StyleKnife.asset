@@ -15,9 +15,7 @@ MonoBehaviour:
   itemType: 0
   icon: {fileID: 21300000, guid: fcb6d6cf53ec3e84eb0835f69272c6a5, type: 3}
   itemName: Style Knife
-  description: 
-  price: 100
+  description: Stylized knife to destroy enemies in style.
+  price: 450
   mainHandSprite: {fileID: 21300000, guid: 97ad91e8b9bc5f94f941f06a70776c26, type: 3}
   offHandSprite: {fileID: 21300000, guid: 97ad91e8b9bc5f94f941f06a70776c26, type: 3}
-  damage: 70
-  attackSpeed: 1

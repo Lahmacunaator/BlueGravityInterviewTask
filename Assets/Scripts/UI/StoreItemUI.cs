@@ -19,7 +19,7 @@ namespace UI
         [SerializeField] private GameObject resultTextPrefab;
 
         public ItemType type;
-        private ItemSO item;
+        private ItemSO _item;
 
         public void UpdateFields(ItemSO itemSo, bool isPurchased = false, bool isEquipped = false)
         {
@@ -29,7 +29,7 @@ namespace UI
             UpdateIcon(itemSo.icon);
             UpdateButton(isPurchased, isEquipped);
             UpdateType(itemSo.itemType);
-            item = itemSo;
+            _item = itemSo;
         }
     
         private void UpdateButton(bool isPurchased, bool isEquipped = false)
@@ -42,28 +42,30 @@ namespace UI
         public void OnBuyButton()
         {
             var inventory = GameManager.Instance.GetPlayerInventoryController();
-        
-            var result = inventory.HandleItemPurchase(item);
-            UpdateButton(true);
-            UpdatePriceText(item.GetSellPrice);
-            
+            var result = inventory.HandleItemPurchase(_item);
+
             ShowResultText(result);
+            
+            if (result != ShopActionResult.PURCHASED) return;
+            
+            UpdateButton(true);
+            UpdatePriceText(_item.GetSellPrice);
         }
 
-        private void UpdatePriceText(int price) =>priceField.text = $"{price}G";
+        private void UpdatePriceText(int price) => priceField.text = $"{price}G";
 
         public void OnSellButton()
         {
             var inventory = GameManager.Instance.GetPlayerInventoryController();
         
-            var result = inventory.HandleItemSale(item);
+            var result = inventory.HandleItemSale(_item);
         
             ShowResultText(result);
 
             if (result is ShopActionResult.ERROR or ShopActionResult.EQUIPANOTHERITEMBEFORESELLING) return;
         
             UpdateButton(false);
-            UpdatePriceText(item.price);
+            UpdatePriceText(_item.price);
         }
 
         private void ShowResultText(ShopActionResult result)
@@ -73,28 +75,28 @@ namespace UI
             switch (result)
             {
                 case ShopActionResult.NOTENOUGHGOLD:
-                    textArea.text = $"You don't have enough gold to buy {item.itemName}";
+                    textArea.text = $"You don't have enough gold to buy {_item.itemName}";
                     break;
                 case ShopActionResult.PURCHASED:
                     textArea.color = Color.green;
                     textArea.text = "Purchased successfully!";
                     break;
                 case ShopActionResult.EQUIPANOTHERITEMBEFORESELLING:
-                    textArea.text = $"Equip Another Item before selling the {item.itemName}.";
+                    textArea.text = $"Equip Another Item before selling the {_item.itemName}.";
                     break;
                 case ShopActionResult.EQUIPPED:
                     textArea.color = Color.green;
-                    textArea.text = $"Equipped {item.itemName} successfully.";
+                    textArea.text = $"Equipped {_item.itemName} successfully.";
                     break;
                 case ShopActionResult.SOLD:
                     textArea.color = Color.green;
-                    textArea.text = $"Sold {item.itemName}";
+                    textArea.text = $"Sold {_item.itemName}";
                     break;
                 case ShopActionResult.ERROR:
                     textArea.text = "An error has occured";
                     break;
                 case ShopActionResult.ALREADYEQUIPPED:
-                    textArea.text = $"{item.itemName} is already equipped";
+                    textArea.text = $"{_item.itemName} is already equipped";
                     break;
                 default:
                     throw new ArgumentOutOfRangeException(nameof(result), result, null);
@@ -105,7 +107,7 @@ namespace UI
         public void OnEquipButton()
         {
             var inventoryController = GameManager.Instance.GetPlayerInventoryController();
-            var result = inventoryController.EquipItem(item);
+            var result = inventoryController.EquipItem(_item);
             UpdateButton(true, true);
             ShowResultText(result);
         }

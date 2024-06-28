@@ -11,10 +11,10 @@ namespace UI
         [SerializeField] private GameObject storeItemPrefab;
         [SerializeField] private Transform storeItemParent;
     
-        private List<StoreItemUI> storeItemsInScene = new();
-        private bool isStoreGenerated;
-        private PlayerInventoryController inventoryController;
-        private List<ItemSO> storeItems;
+        private readonly List<StoreItemUI> _storeItemsInScene = new();
+        private bool _isStoreGenerated;
+        private PlayerInventoryController _inventoryController;
+        private List<ItemSO> _storeItems;
 
         private void Awake()
         {
@@ -33,27 +33,27 @@ namespace UI
 
         private void PopulateStoreItems()
         {
-            storeItems = GameManager.Instance.GetAllItems();
+            _storeItems = GameManager.Instance.GetAllItems();
         }
 
         private void GenerateStoreItems()
         {
-            if (isStoreGenerated) return;
+            if (_isStoreGenerated) return;
         
-            foreach (var storeItem in storeItems)
+            foreach (var storeItem in _storeItems)
             {
                 var item = Instantiate(storeItemPrefab, storeItemParent);
                 var itemDetails = item.GetComponent<StoreItemUI>();
                 itemDetails.UpdateFields(storeItem, CheckIfItemIsPurchased(storeItem), CheckIfItemIsEquipped(storeItem));
-                storeItemsInScene.Add(itemDetails);
+                _storeItemsInScene.Add(itemDetails);
             }
 
-            isStoreGenerated = true;
+            _isStoreGenerated = true;
         }
 
         public void FilterWeapons()
         {
-            var weapons = storeItemsInScene.Where(item => item.type == ItemType.WEAPON);
+            var weapons = _storeItemsInScene.Where(item => item.type == ItemType.WEAPON);
         
             foreach (var item in weapons)
                 item.gameObject.SetActive(!item.gameObject.activeSelf);
@@ -61,7 +61,7 @@ namespace UI
     
         public void FilterOutfits()
         {
-            var outfits = storeItemsInScene.Where(item => item.type != ItemType.WEAPON && item.type != ItemType.FULLSET);
+            var outfits = _storeItemsInScene.Where(item => item.type != ItemType.WEAPON && item.type != ItemType.FULLSET);
         
             foreach (var item in outfits)
                 item.gameObject.SetActive(!item.gameObject.activeSelf);
@@ -69,18 +69,18 @@ namespace UI
     
         public void FilterSets()
         {
-            var fullSets = storeItemsInScene.Where(item => item.type == ItemType.FULLSET);
+            var fullSets = _storeItemsInScene.Where(item => item.type == ItemType.FULLSET);
         
             foreach (var item in fullSets)
                 item.gameObject.SetActive(!item.gameObject.activeSelf);
         }
 
-        private bool CheckIfItemIsPurchased(ItemSO item) => inventoryController.CheckIfItemIsPurchased(item);
-        private bool CheckIfItemIsEquipped(ItemSO item) => inventoryController.CheckIfItemIsEquipped(item);
+        private bool CheckIfItemIsPurchased(ItemSO item) => _inventoryController.CheckIfItemIsPurchased(item);
+        private bool CheckIfItemIsEquipped(ItemSO item) => _inventoryController.CheckIfItemIsEquipped(item);
 
         private void GetPlayerInventory()
         {
-            inventoryController = GameManager.Instance.GetPlayerInventoryController();
+            _inventoryController = GameManager.Instance.GetPlayerInventoryController();
         }
     }
 
