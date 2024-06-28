@@ -1,19 +1,19 @@
+using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
-public class UIManager : MonoBehaviour
+namespace UI
 {
-    public GameObject shopUI;
-    
-    // Start is called before the first frame update
-    void Awake()
+    public class UIManager : MonoBehaviour
     {
-    }
+        [SerializeField] private GameObject shopUI;
+        [SerializeField] private TMP_Text goldAmountText;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+        public void UpdateGoldAmountText(string text) => goldAmountText.text = text;
 
-    public void ToggleShopUI() => shopUI.SetActive(!shopUI.activeSelf);
+        public void ToggleShopUI() => shopUI.SetActive(!shopUI.activeSelf);
+
+        public void OnExitButton() => Application.Quit();
+        public void OnRestartButton() => SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex);
+    }
 }

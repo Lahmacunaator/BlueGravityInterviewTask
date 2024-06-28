@@ -1,29 +1,32 @@
 using UnityEngine;
 
-public class PlayerMovement : MonoBehaviour
+namespace Player
 {
-    public float moveSpeed = 5f;
-    private Rigidbody2D rigidBody;
-    private Animator animator;
-
-    private Vector2 movement;
-
-    void Start()
+    public class PlayerMovement : MonoBehaviour
     {
-        animator = GetComponent<Animator>();
-        rigidBody = GetComponent<Rigidbody2D>();
-    }
+        public float moveSpeed = 5f;
+        private Rigidbody2D rigidBody;
+        private Animator animator;
 
-    void Update()
-    {
-        movement.x = Input.GetAxisRaw("Horizontal");
-        movement.y = Input.GetAxisRaw("Vertical");
+        private Vector2 movement;
+
+        void Start()
+        {
+            animator = GetComponent<Animator>();
+            rigidBody = GetComponent<Rigidbody2D>();
+        }
+
+        private void Update()
+        {
+            movement.x = Input.GetAxisRaw("Horizontal");
+            movement.y = Input.GetAxisRaw("Vertical");
         
-        animator.SetFloat("speed", movement.sqrMagnitude);
-    }
+            animator.SetFloat("speed", movement.sqrMagnitude);
+        }
 
-    void FixedUpdate()
-    {
-        rigidBody.MovePosition(rigidBody.position + movement * (moveSpeed * Time.fixedDeltaTime));
+        private void FixedUpdate()
+        {
+            rigidBody.MovePosition(rigidBody.position + movement * (moveSpeed * Time.fixedDeltaTime));
+        }
     }
 }

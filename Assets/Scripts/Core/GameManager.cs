@@ -1,5 +1,8 @@
 using System;
 using System.Collections.Generic;
+using Player;
+using ScriptableObjects;
+using UI;
 using UnityEngine;
 using UnityEngine.Serialization;
 

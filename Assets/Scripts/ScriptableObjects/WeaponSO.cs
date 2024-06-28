@@ -1,10 +1,11 @@
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "NewWeapon", menuName = "Store/Weapon")]
-public class WeaponSO : ItemSO
+namespace ScriptableObjects
 {
-    public Sprite mainHandSprite;
-    public Sprite offHandSprite;
-    public int damage;
-    public float attackSpeed;
+    [CreateAssetMenu(fileName = "NewWeapon", menuName = "Store/Weapon")]
+    public class WeaponSO : ItemSO
+    {
+        public Sprite mainHandSprite;
+        public Sprite offHandSprite;
+    }
 }

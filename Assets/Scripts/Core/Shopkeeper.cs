@@ -29,6 +29,5 @@ public class Shopkeeper : MonoBehaviour
         {
             GameManager.Instance.ChangeGameState(GameState.SHOPPING);
         }
-            
     }
 }
