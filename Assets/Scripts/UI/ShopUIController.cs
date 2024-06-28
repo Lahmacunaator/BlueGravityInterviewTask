@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.PlayerLoop;
 
 public class ShopUIController : MonoBehaviour
 {
@@ -18,6 +19,14 @@ public class ShopUIController : MonoBehaviour
         PopulateStoreItems();
         GetPlayerInventory();
         GenerateStoreItems();
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            GameManager.Instance.ChangeGameState(GameState.PLAYING);
+        }
     }
 
     private void PopulateStoreItems()

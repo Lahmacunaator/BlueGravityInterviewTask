@@ -1,14 +1,17 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
-
+    public UIManager uiManager;
+    public CameraController cameraController;
+    
     [SerializeField] private List<ItemSO> AllItems;
     private GameObject player;
-    private GameState state;
+    private GameState state = GameState.PLAYING;
     
     
     // Start is called before the first frame update
@@ -33,15 +36,15 @@ public class GameManager : MonoBehaviour
 
     private void HandleStateChange(GameState gameState)
     {
-        switch (gameState)
+        var playerMover = GetPlayerMover();
+        playerMover.enabled = gameState switch
         {
-            case GameState.PLAYING:
-                break;
-            case GameState.SHOPPING:
-                break;
-            default:
-                throw new ArgumentOutOfRangeException(nameof(gameState), gameState, null);
-        }
+            GameState.PLAYING => true,
+            GameState.SHOPPING => false,
+            _ => throw new ArgumentOutOfRangeException(nameof(gameState), gameState, null)
+        };
+        uiManager.ToggleShopUI();
+        cameraController.ToggleZoom();
     }
 
     public PlayerOutfitController GetPlayerOutfitController() =>  player.GetComponent<PlayerOutfitController>();
@@ -49,6 +52,7 @@ public class GameManager : MonoBehaviour
     public PlayerMovement GetPlayerMover() =>  player.GetComponent<PlayerMovement>();
 
     public List<ItemSO> GetAllItems() => AllItems;
+    public GameState GetState() => state;
 }
 
 public enum GameState
